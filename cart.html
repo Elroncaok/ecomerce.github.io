@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link" href="inicio.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <div>
+        <h2 class="text-center p-4">Carrito de compras</h2>
+        <h3 class="mb-1">Artículos a comprar</h3>
+      </div>
+      <div class="alert alert-success alert-dismissible fade" role="alert" id="alert-success">
+        <p>la compra se realizo exitosamente. </p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nombre</th>
+              <th>Costo</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cartProd">
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <h3 class="mb-1">Tipo de envío</h3>
+      <div>
+        <input type="radio" onchange="showTotal()" name="envio" value="0.15" checked>
+        Premium 2 a 5 días (15%)
+        </input><br>
+        <input type="radio" onchange="showTotal()" name="envio" value="0.07">
+        Express 5 a 8 días (7%)
+        </input><br>
+        <input type="radio" onchange="showTotal()" name="envio" value="0.05">
+        Standard 12 a 15 días (5%)
+        </input>
+      </div><br>
+      <h3 class="mb-1">Dirección de envío</h3>
+      <form action="#" method="get" class="row mt-4 needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="calleDireccion" class="form-label">Calle</label>
+            <input type="text" class="form-control" id="calleDireccion" value="" name="calleDireccion" required>
+            <div class="invalid-feedback">
+              Ingresa una calle
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="calleNum" class="form-label">Número</label>
+            <input type="number" class="form-control" id="calleNum" value="" name="calleNum" required>
+            <div class="invalid-feedback">
+              Ingresa un número
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="calleEsq" class="form-label">Esquina</label>
+            <input type="text" class="form-control" id="calleEsq" value="" name="calleEsq" required>
+            <div class="invalid-feedback">
+              Ingresa una esquina
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h4 class="mb-3">Costos</h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Subtotal</h6>
+              <small class="text-muted">Unitario del producto por cantidad</small>
+            </div>
+            <span class="text-muted" id="subTotalText">-</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Costo de envío</h6>
+              <small class="text-muted">Según el tipo de envío</small>
+            </div>
+            <span class="text-muted" id="envioText">-</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total ($)</span>
+            <strong id="totalText">-</strong>
+          </li>
+        </ul>
+        <hr>
+        <h4 class="mb-3">Forma de pago</h4>
+        <div class="row" id="modoPago">
+          <p>No ha seleccionado
+            <button type="button" class="m-1 btn btn-link" id="btnModal" data-bs-toggle="modal"
+              data-bs-target="#contidionsModal">Seleccionar</button>
+              <div id="textDanger">                
+              </div>              
+          </p>
+        </div>
+        <button type="submit" id="btnFin" class="btn btn-primary btn-lg btn-block">Finalizar compra</button>
+      </form>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
+        2022</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Forma de pago</h5>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+              <div>
+                <input type="radio" id="creditCard" onchange="disableTrx()" name="pago">Tarjeta de crédito
+                </input>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-6">
+                  <label for="nroTarjeta">Número de Tarjeta</label>
+                  <input type="text" name="nroTarjeta"  id="nroTarjeta"></input>
+                  <label for="vtoTarjeta">Vencimiento (MM/AA)</label>
+                  <input type="text" name="vtoTarjeta"  id="vtoTarjeta"></input>
+                </div>
+                <div class="col-6">
+                  <label for="codSeg">Código de seg.</label>
+                  <input type="text" name="codSeg"  id="codSeg"></input>
+                </div>
+              </div>
+              <br>
+              <div>
+                <input type="radio" id="trx" name="pago" onchange="disableTjta()">Transferencia bancaria
+                </input>
+                <hr>
+                <div class="row">
+                  <div class="col-6">
+                    <label for="nroCuenta">Número de cuenta</label>
+                    <input type="text" name="nroCuenta"  id="nroCuenta"></input>
+                  </div>
+                </div>
+              </div>
+          </div><br>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="btnCerrar" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
